@@ -102,17 +102,12 @@ func AtualizarPublicacao(w http.ResponseWriter, r *http.Request) {
 
 	parametrosSemEspaço := strings.TrimSpace(parametrosComEspaço["publicacaoId"])
 
-	fmt.Println("Parametros com espaço da request: ", parametrosComEspaço)
-	fmt.Println("Parametros sem espaço da request: ", parametrosSemEspaço)
-
 	publicacaoID, erro := strconv.ParseUint(parametrosSemEspaço, 10, 64)
 	if erro != nil {
 		fmt.Println("Erro ao converter em uint: ", erro)
 		respostas.JSON(w, http.StatusBadRequest, respostas.ErroAPI{Erro: erro.Error()})
 		return
 	}
-
-	fmt.Println("ID da publicação editada: ", publicacaoID)
 
 	r.ParseForm()
 	publicacao, erro := json.Marshal(map[string]string{
