@@ -24,7 +24,7 @@
                     <label for="conteudo">Conteúdo</label>
                     <textarea name="conteudo" id="conteudo" class="form-control" placeholder="Escreva o conteúdo da sua publicação">{{ .Conteudo }}</textarea>
                 </div>
-                <button id="atualizar-publicacao" class="btn btn-info" data-publicacao-id=" {{ .ID }} ">
+                <button id="atualizar-publicacao" class="btn btn-info" data-publicacao-id="{{ .ID }}">
                     Salvar Alterações
                 </button>
             </div>

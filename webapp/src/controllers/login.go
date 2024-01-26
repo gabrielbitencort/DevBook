@@ -19,6 +19,7 @@ func FazerLogin(w http.ResponseWriter, r *http.Request) {
 		"email": r.FormValue("email"),
 		"senha": r.FormValue("senha"),
 	})
+
 	if erro != nil {
 		respostas.JSON(w, http.StatusBadRequest, respostas.ErroAPI{Erro: erro.Error()})
 		return

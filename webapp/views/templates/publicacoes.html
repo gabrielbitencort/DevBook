@@ -1,43 +1,42 @@
 {{ define "curtidas" }}
-    <i class="fas fa-heart curtir-publicacao"></i>
-    <span> {{ .Curtidas }} </span>
+<i class="fas fa-heart curtir-publicacao" style="cursor: pointer;"></i>
+<span> {{ .Curtidas }} </span>
 {{ end }}
 
 {{ define "editar" }}
-    <a href="/publicacoes/{{ .ID }}/atualizar" style="text-decoration: none;">
-        <i class="fas fa-edit"></i>
-    </a>
+<a href="/publicacoes/{{ .ID }}/atualizar" style="text-decoration: none;">
+    <i class="fas fa-edit"></i>
+</a>
 {{ end }}
 
 {{ define "deletar" }}
-    <a href="/deletar"style="text-decoration: none;">
-        <i class="fas fa-trash text-danger"></i>
-    </a>
+<i class="fas fa-trash text-danger deletar-publicacao" style="cursor: pointer;"></i>
 {{ end }}
 
 {{ define "cabecalho-publicacao"}}
-    <h1 class="display-4"> {{ .Titulo }} </h1>
-    <p class="lead"> {{ .Conteudo }} </p>
-    <a href="#"> {{ .AutorNick }} - {{ .CriadaEm.Format "02/01/2006 15:04" }} </a>
-    <hr class="my-4">
+<h1 class="display-4"> {{ .Titulo }} </h1>
+<p class="lead"> {{ .Conteudo }} </p>
+<a href="#"> {{ .AutorNick }}</a>
+<p>{{ .CriadaEm.Format "02/01/2006 15:04" }}</p>
+<hr class="my-4">
 {{ end }}
 
 {{ define "publicacao-com-permissao" }}
-    <div class="jumbotron" data-publicacao-id="{{ .ID }}">
-        {{ template "cabecalho-publicacao" . }}
-        <p>
-            {{ template "curtidas" . }}
-            {{ template "editar" . }}
-            {{ template "deletar" . }}
-        </p>
-    </div>
+<div class="jumbotron" data-publicacao-id="{{ .ID }}">
+    {{ template "cabecalho-publicacao" . }}
+    <p>
+        {{ template "curtidas" . }}
+        {{ template "editar" . }}
+        {{ template "deletar" . }}
+    </p>
+</div>
 {{ end }}
 
 {{ define "publicacao-sem-permissao" }}
-    <div class="jumbotron" data-publicacao-id="{{ .ID }}">
-        {{ template "cabecalho-publicacao" . }}
-        <p>
-            {{ template "curtidas" . }}
-        </p>
-    </div>
+<div class="jumbotron" data-publicacao-id="{{ .ID }}">
+    {{ template "cabecalho-publicacao" . }}
+    <p>
+        {{ template "curtidas" . }}
+    </p>
+</div>
 {{ end }}

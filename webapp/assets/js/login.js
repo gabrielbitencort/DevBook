@@ -8,11 +8,11 @@ function fazerLogin(evento) {
         method: "POST",
         data: {
             email: $('#email').val(),
-            senha: $('#senha').val()
+            senha: $('#senha').val(),
         }
     }).done(function() {
         window.location = "/home";
-    }).fail(function() {
-        alert("Usuário ou senha inválidos!");
+    }).fail(function(erro) {
+        Swal.fire("Ops...", "Usuário ou senha incorretos!", "error");
     });
 }

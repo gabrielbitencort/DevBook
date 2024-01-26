@@ -1,6 +1,6 @@
 insert into usuarios (nome, nick, email, senha)
 values
-("Usuário 1", "usuario_1", "teste@gmail.com", "$2a$10$WL/LhKXplfKw8sLfly1gU.wxZ.okwHkiH06oiG7/gog29czxUTr1O"),
+("Usuário 1", "usuario_1", "usuario1@gmail.com", "$2a$10$WL/LhKXplfKw8sLfly1gU.wxZ.okwHkiH06oiG7/gog29czxUTr1O"),
 ("Usuário 2", "usuario_2", "usuario2@gmail.com", "$2a$10$WL/LhKXplfKw8sLfly1gU.wxZ.okwHkiH06oiG7/gog29czxUTr1O"),
 ("Usuário 3", "usuario_3", "usuario3@gmail.com", "$2a$10$WL/LhKXplfKw8sLfly1gU.wxZ.okwHkiH06oiG7/gog29czxUTr1O");
 
