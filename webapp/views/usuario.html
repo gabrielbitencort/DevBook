@@ -30,11 +30,11 @@
                         </h6>
 
                         <p class="card-text">
-                            <a href="#">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-seguidores">
                                 Seguidores: {{ len .Usuario.Seguidores }}
                             </a>
                         </p>
-                        <p class="card-text">
+                        <p class="card-text" data-bs-toggle="modal" data-bs-target="#modal-seguindo">
                             <a href="#">
                                 Seguindo: {{ len .Usuario.Seguindo }}
                             </a>
@@ -67,12 +67,12 @@
                         <h5 class="card-title"> Publicações do Usuário {{ .Usuario.Nick }} </h5>
                         <p class="card-text">
                             {{ range .Usuario.Publicacoes }}
-                                {{ template "publicacao-sem-permissao" . }}
+                            {{ template "publicacao-sem-permissao" . }}
                             {{ else }}
-                                <p class="text-muted text-center">
-                                    Nenhuma publicação por enquanto...
-                                </p>
-                            {{ end }}
+                        <p class="text-muted text-center">
+                            Nenhuma publicação por enquanto...
+                        </p>
+                        {{ end }}
                         </p>
                     </div>
                 </div>
@@ -80,10 +80,13 @@
         </div>
     </div>
 
+    {{ template "modal-seguidores" .Usuario }}
+    {{ template "modal-seguindo" .Usuario }}
     {{ template "rodape" }}
     {{ template "scripts" }}
 
     <script src="/assets/js/publicacoes.js"></script>
+    <script src="/assets/js/usuario.js"></script>
 </body>
 
 </html>
